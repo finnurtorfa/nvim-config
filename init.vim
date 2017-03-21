@@ -44,6 +44,7 @@ nnoremap <S-Tab> :bprev<CR>               " Switch to previous tab: Shift-Tab
 nnoremap <NUL> :nohlsearch<CR>            " Switch to previous tab: Ctrl-Space
 " Remove trailing whitespace when I press F3
 nnoremap <silent> <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <C-t> :CtrlPTag<cr>
 
 " Neomake normal mode mappings and configuration
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -69,6 +70,10 @@ let g:airline_theme= 'powerlineish'
 
 " Ctrl-P configuration
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|d)$',
+  \ }
 
 " Plugins to install
 call plug#begin('~/.config/nvim/plugged/')
